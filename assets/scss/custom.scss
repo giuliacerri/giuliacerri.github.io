@@ -1,0 +1,216 @@
+// Custom color scheme - Sage green theme
+// Define variables BEFORE importing theme
+
+// Primary color - richer sage green
+$primary: #6B8E5F !default;
+$secondary: #4A5D3F !default;
+
+// Background colors - soft sage tones
+$light-bg: #EEF2E6 !default;
+$white-bg: #ffffff !default;
+$light: #ffffff !default;
+
+// Text colors
+$headings-color: #2d4023 !default;
+$body-color: #556B4A !default;
+$text-light: #ffffff !default;
+
+// Additional theme colors with sage green harmony
+$success: #6B8E5F !default;
+$info: #85A673 !default;
+$warning: #C9A959 !default;
+$danger: #A8685F !default;
+
+// Import the original theme styles
+@import "../../themes/portio/assets/scss/style.scss";
+
+// OVERRIDES - Must come AFTER the import to override hardcoded values
+
+// Resume section - force green background
+.resume__background {
+  background: linear-gradient(135deg, #4A5D3F 0%, #5A7A4F 100%) !important;
+}
+
+// Footer - green background
+.footer {
+  background: #4A5D3F !important;
+}
+
+// About section blob
+.about_content-inner-blob path {
+  fill: url(#c) !important;
+}
+
+// All buttons - sage green theme
+.btn-primary, .btn.btn-primary {
+  background-color: #6B8E5F !important;
+  border-color: #6B8E5F !important;
+  color: #ffffff !important;
+  
+  &:hover, &:focus, &:active, &.active {
+    background-color: #5A7A4F !important;
+    border-color: #5A7A4F !important;
+    color: #ffffff !important;
+  }
+}
+
+// Tab buttons in resume section
+.btn-group .btn, .nav .btn {
+  background-color: #6B8E5F !important;
+  border-color: #6B8E5F !important;
+  
+  &:hover, &:focus, &.active {
+    background-color: #5A7A4F !important;
+    border-color: #5A7A4F !important;
+  }
+}
+
+// Links
+a, .nav-link {
+  color: #6B8E5F !important;
+  
+  &:hover, &:focus {
+    color: #4A5D3F !important;
+  }
+}
+
+// Navigation active states
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #6B8E5F !important;
+}
+
+// Text primary color
+.text-primary, span.text-primary {
+  color: #6B8E5F !important;
+}
+
+// Background primary
+.bg-primary {
+  background-color: #6B8E5F !important;
+}
+
+// Icon backgrounds in service section
+.icon-background path {
+  fill: #EEF2E6 !important;
+}
+
+// Hero blob gradient
+.hero_content .blob {
+  fill: url(#a) !important;
+}
+
+// Service section blob
+.service__background_shape .blob {
+  fill: url(#b) !important;
+}
+
+// Form controls focus
+.form-control:focus {
+  border-color: #6B8E5F !important;
+  box-shadow: 0 0 0 0.2rem rgba(107, 142, 95, 0.25) !important;
+}
+
+// Any remaining blue accents
+.text-light {
+  color: #ffffff !important;
+}
+
+// Ensure section backgrounds are light sage
+.hero, .service, .about, .portfolio, .blog {
+  background-color: #EEF2E6 !important;
+}
+
+// Logo sizing
+.navbar-brand img {
+  max-height: 50px !important;
+  width: auto !important;
+}
+
+.footer__footer img {
+  max-height: 60px !important;
+  width: auto !important;
+}
+
+// Ensure proper green theme for buttons
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  color: $text-light;
+  
+  &:hover, &:focus, &:active {
+    background-color: darken($primary, 12%);
+    border-color: darken($primary, 12%);
+    color: $text-light;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary;
+  border-color: $primary;
+  
+  &:hover, &:focus, &:active {
+    background-color: $primary;
+    border-color: $primary;
+    color: $text-light;
+  }
+}
+
+// Links
+a {
+  color: $primary;
+  
+  &:hover, &:focus {
+    color: darken($primary, 15%);
+  }
+}
+
+// Navigation links
+.navbar-nav .nav-link {
+  &:hover, &.active {
+    color: $primary !important;
+  }
+}
+
+// Service icons background
+.service__slider_item-icon .icon-background path {
+  fill: $light-bg !important;
+}
+
+// Primary accents
+.text-primary {
+  color: $primary !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+// Form controls focus state
+.form-control:focus {
+  border-color: $primary;
+  box-shadow: 0 0 0 0.2rem rgba(107, 142, 95, 0.25);
+}
+
+// Service slider customization - ensure horizontal scrolling works
+.service__slider {
+  .slick-track {
+    display: flex;
+  }
+  
+  &_item {
+    min-height: 350px;
+    display: flex !important;
+    flex-direction: column;
+  }
+}
+
+// Force navbar to always have sage green background
+.navbar {
+  background: #EEF2E6 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  
+  &.nav__color__change {
+    background: #EEF2E6 !important;
+  }
+}

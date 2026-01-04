@@ -1,0 +1,52 @@
+---
+enable: true
+topTitle: Il Mio Percorso
+title: >
+  ## Formazione & Esperienza
+
+  Il mio percorso professionale nel campo della psicologia.
+tab1Name: Formazione
+tab2Name: Esperienza
+tab1Target: education
+tab2Target: experience
+
+education:
+  - content: >
+      #### Master di Specializzazione in Psicologia e Fisiologia Perinatale
+
+      APL – Associazione Psicologi Lombardia, in collaborazione con A.S.I.P.P – 
+      Associazione Scientifica Italiana di Psicologia Perinatale
+    time: Marzo 2025 – Novembre 2025
+  - content: >
+      #### Laurea Magistrale in Psicologia Clinica e della Salute
+
+      Università di Pisa, votazione 110L  
+      Dottoressa Magistrale in Psicologia Clinica e della Salute  
+      Abilitazione alla Professione di psicologo: ottobre 2024, Università di Pisa
+    time: 2021 - 2023
+  - content: >
+      #### Laurea Triennale in Scienze e Tecniche di Psicologia Clinica e della Salute
+
+      Università di Pisa, votazione 109/110  
+      Dottoressa in Scienze e Tecniche di Psicologia Clinica e della Salute
+    time: 2018 - 2021
+
+experience:
+  - content: >
+      #### Consulenze Psicologiche Individuali
+
+      Percorsi di sostegno psicologico personalizzati rivolti ad adulti, adolescenti
+      e giovani adulti, sia in presenza che online.
+    time: In corso
+  - content: >
+      #### Supporto in Ambito Perinatale
+
+      Accompagnamento psicologico durante la gravidanza, il puerperio e nelle
+      fasi di transizione alla genitorialità.
+    time: In corso
+  - content: >
+      #### Interventi di Prevenzione e Benessere
+
+      Attività di promozione della salute psicologica e gestione dello stress
+      in diversi contesti.
+    time: In corso

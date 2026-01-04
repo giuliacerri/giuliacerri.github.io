@@ -1,0 +1,21 @@
+---
+enable: true
+topTitle: Chi Sono
+title: >
+  ## Giulia Cerri
+
+  Psicologa
+content: >
+  ### Supporto psicologico professionale
+
+  Sono una psicologa iscritta all'Ordine degli Psicologi della Toscana con il numero 11059.
+  Offro consulenze psicologiche sia in presenza a Livorno che online.
+  
+  
+  Il mio approccio è centrato sulla persona, con l'obiettivo di fornire un supporto
+  professionale e personalizzato per il benessere psicologico.
+button1Name: Richiedi informazioni
+button2Name: ""
+button1Target: https://forms.gle/9B6GrxiGAkTFqN8S8
+button2Target: ""
+image: images/about/studio.jpg

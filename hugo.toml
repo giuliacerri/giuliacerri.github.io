@@ -1,0 +1,82 @@
+baseURL = "https://giuliacerri.github.io"
+languageCode = "it"
+title = "Giulia Cerri"
+theme = "portio"
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 6
+
+DefaultContentLanguage = "it"
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Main Menu
+[[menu.main]]
+  name = "Home"
+  url = "#home"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "#about"
+  weight = 2
+
+[[menu.main]]
+  name = "Resume"
+  url = "#resume"
+  weight = 3
+
+[[menu.main]]
+  name = "Services"
+  url = "#service"
+  weight = 4
+
+[[menu.main]]
+  name = "Portfolio"
+  url = "#portfolio"
+  weight = 5
+
+[[menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 6
+
+[params]
+  logo = "images/site-navigation/logo.webp"
+  footerLogo = "images/contact/widget-logo.webp"
+  contactLink = "contact"
+  blogPageURL = "blog"
+  copyright = "All right reserved copyright © Giulia Cerri 2025"
+  googleAnalytics = ""
+  # We're using formspree.io for form handling - you can create a free account
+  fabformURL = ""
+  
+  author = "Giulia Cerri"
+  description = "Portfolio and personal website"
+
+[params.address]
+  email = "giuliacerri.psicologa@gmail.com"
+  phone = "+39 350 5904363"
+  address = "Via Monte Grappa n 6, Livorno | Online"
+  openingHours = ""
+
+[params.map]
+  APIkey = ""
+  latitude = ""
+  longitude = ""
+  pinImage = "images/pin.png"
+
+# Social icons
+[[params.social]]
+  icon = "fa-instagram"
+  url = "https://www.instagram.com/giuliacerri.psicologa"
+  weight = 1
+
+[[params.social]]
+  icon = "fa-linkedin"
+  url = "https://www.linkedin.com/in/giulia-cerri-823920337/"
+  weight = 2
