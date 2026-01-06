@@ -214,3 +214,237 @@ a {
     background: #EEF2E6 !important;
   }
 }
+
+// Fix navbar and body overflow on mobile
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.navbar, .navbar .container {
+  max-width: 100% !important;
+}
+
+.navbar-brand img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Fix about section alignment
+.about_content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  
+  &-thumb {
+    width: 45% !important;
+    
+    .about-svg {
+      display: none !important;
+    }
+  }
+  
+  &-inner {
+    width: 55% !important;
+    margin-left: -60px !important;
+    text-align: center !important;
+    
+    .btn-outline-primary {
+      display: none !important;
+    }
+    
+    .btn-primary {
+      margin: 0 auto !important;
+    }
+    
+    &-blob {
+      display: none !important;
+    }
+  }
+}
+
+// Mobile-specific about section adjustments
+@media (max-width: 991px) {
+  .about_content {
+    &-thumb {
+      width: 100% !important;
+      
+      &-image {
+        img {
+          -webkit-mask: none !important;
+          mask: none !important;
+          border-radius: 20px !important;
+          overflow: hidden !important;
+        }
+      }
+    }
+    
+    &-inner {
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-top: 30px !important;
+      padding: 30px 25px 35px !important;
+      
+      .btn-primary {
+        margin-top: 20px !important;
+      }
+    }
+  }
+}
+
+// Make hero section mobile-friendly
+.hero {
+  overflow-x: hidden !important;
+  position: relative !important;
+  
+  .hero_content {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    
+    .hero_blob {
+      display: none !important; // Hide decorative blob on all devices
+    }
+  }
+  
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .col-lg-6 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  // Hide background shapes that might cause overflow
+  .hero__background_shape,
+  .hero_background-svg,
+  .hero_footer-svg {
+    display: none !important;
+  }
+}
+
+// Mobile-specific hero adjustments
+@media (max-width: 991px) {
+  .hero {
+    padding: 60px 0 40px !important;
+    min-height: auto !important;
+    
+    .container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+    }
+    
+    .row {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+    
+    .col-lg-6 {
+      padding: 0 20px !important;
+      margin: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+    
+    .hero_content {
+      text-align: center !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      position: static !important;
+      transform: none !important;
+      left: auto !important;
+      right: auto !important;
+      
+      * {
+        max-width: 100% !important;
+      }
+      
+      .mb-5 {
+        margin-bottom: 2rem !important;
+        width: 100% !important;
+        padding: 0 !important;
+      }
+      
+      .top-title {
+        display: block !important;
+        font-size: 1.2rem !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+      
+      h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+        width: 100% !important;
+        word-wrap: break-word !important;
+        text-align: center !important;
+      }
+      
+      p {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+      
+      .btn {
+        margin: 1rem auto 0 !important;
+        display: inline-block !important;
+        width: auto !important;
+        max-width: calc(100% - 40px) !important;
+        white-space: normal !important;
+        padding: 12px 24px !important;
+      }
+    }
+    
+    // Hide decorative SVGs and images on mobile
+    .hero_background-svg,
+    .hero_footer-svg,
+    .figure-svg,
+    .hero_figure,
+    .hero__background_shape,
+    .scroll-down {
+      display: none !important;
+    }
+  }
+}
+
+// Hide entire image container on mobile to prevent layout shifts
+@media (max-width: 991px) {
+  .about_content-inner {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  // Ensure navbar toggle is visible
+  .navbar-toggler {
+    display: block !important;
+    z-index: 9999 !important;
+  }
+  
+  .navbar-collapse {
+    z-index: 9998 !important;
+    background: #EEF2E6 !important;
+  }
+  
+  // Fix container overflow
+  .container {
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
