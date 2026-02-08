@@ -72,6 +72,11 @@ DefaultContentLanguage = "it"
   weight = 2
 
 [[params.social]]
+  icon = "fa-facebook"
+  url = "https://www.facebook.com/profile.php?id=61585755094853"
+  weight = 3
+
+[[params.social]]
   icon = "fa-linkedin"
   url = "https://www.linkedin.com/in/giulia-cerri-823920337/"
-  weight = 3
+  weight = 4
