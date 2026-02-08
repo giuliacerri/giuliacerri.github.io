@@ -4,6 +4,7 @@ cards:
   - id: psicologico
     title: Sostegno Psicologico
     icon: fa-user
+    image: images/service/1.webp
     description: Mi occupo di difficoltà emotive, relazionali e dei momenti di transizione che possono generare disorientamento o sofferenza. I percorsi che propongo sono personalizzati e costruiti insieme, nel rispetto dell'unicità di ciascuno e dei tempi individuali. Attraverso un ascolto attento e non giudicante, accompagno le persone nel rafforzare le proprie risorse, aumentare la consapevolezza di sé e trovare nuove modalità per affrontare le difficoltà.
     items:
       - title: Promozione del benessere
@@ -29,8 +30,9 @@ cards:
           valori, il sostegno psicologico favorisce decisioni consapevoli e realistiche, 
           aiutando a gestire dubbi, pressioni esterne e vissuti di incertezza legati al futuro.
   - id: perinatale
-    title: Sostegno Psicologico Perinatale
+    title: Psicologia Perinatale
     icon: fa-child
+    image: images/service/2.webp
     description: Accompagno e sostengo il nucleo familiare nel periodo che va dal progetto generativo alla gravidanza, dalla nascita ai primi anni di vita del bambino. Il focus è sul benessere della triade madre–padre–bambino, con l'obiettivo di rafforzarne le competenze e le risorse individuali e relazionali. Attraverso l'ascolto attivo e non giudicante della donna e della sua famiglia, il supporto psicologico perinatale favorisce scelte consapevoli e sostiene l'acquisizione del ruolo genitoriale fin dalle fasi precoci.
     items:
       - title: Gravidanza

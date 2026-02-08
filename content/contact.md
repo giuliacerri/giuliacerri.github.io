@@ -11,7 +11,7 @@ Puoi contattarmi ai seguenti recapiti:
 
 **Email:** giuliacerri.psicologa@gmail.com  
 **Telefono:** +39 350 5904363  
-**Indirizzo:** Via Monte Grappa n 6, Livorno | Online  
+**Indirizzo:** Via Monte Grappa 6, Livorno | Online  
 **Instagram:** @giuliacerri.psicologa
 
 Iscritta all'Ordine degli Psicologi della Toscana n.11059

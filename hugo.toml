@@ -22,28 +22,18 @@ DefaultContentLanguage = "it"
 
 [[menu.main]]
   name = "About"
-  url = "#about"
+  url = "#resume"
   weight = 2
 
 [[menu.main]]
-  name = "Resume"
-  url = "#resume"
+  name = "Servizi"
+  url = "#support"
   weight = 3
 
 [[menu.main]]
-  name = "Services"
-  url = "#service"
-  weight = 4
-
-[[menu.main]]
-  name = "Portfolio"
-  url = "#portfolio"
-  weight = 5
-
-[[menu.main]]
-  name = "Contact"
+  name = "Contatti"
   url = "#contact"
-  weight = 6
+  weight = 4
 
 [params]
   logo = "images/site-navigation/logo.webp"
@@ -61,7 +51,7 @@ DefaultContentLanguage = "it"
 [params.address]
   email = "giuliacerri.psicologa@gmail.com"
   phone = "+39 350 5904363"
-  address = "Via Monte Grappa n 6, Livorno | Online"
+  address = "Via Monte Grappa 6, Livorno | Online"
   openingHours = ""
 
 [params.map]
@@ -77,6 +67,11 @@ DefaultContentLanguage = "it"
   weight = 1
 
 [[params.social]]
+  icon = "fa-whatsapp"
+  url = "https://wa.me/message/IKSE46XDXAZHE1"
+  weight = 2
+
+[[params.social]]
   icon = "fa-linkedin"
   url = "https://www.linkedin.com/in/giulia-cerri-823920337/"
-  weight = 2
+  weight = 3

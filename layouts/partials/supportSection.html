@@ -3,13 +3,16 @@
 <section class="section support" id="support">
     <div class="container">
         <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="support-section-title">I Miei Servizi</h2>
+            </div>
+        </div>
+        <div class="row">
             {{ range $index, $card := .cards }}
             <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                <div class="support-card {{ if eq $card.id "psicologico" }}support-card-light{{ else }}support-card-dark{{ end }} {{ if eq $index 0 }}active{{ end }}" data-toggle="collapse" data-target="#collapse-{{ $card.id }}" aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}" data-parent="#supportAccordion">
+                <div class="support-card {{ if eq $card.id "psicologico" }}support-card-light{{ else }}support-card-dark{{ end }} {{ if eq $index 0 }}active{{ end }}" data-toggle="collapse" data-target="#collapse-{{ $card.id }}" aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}" data-parent="#supportAccordion" style="background-image: url('{{ $card.image | absURL }}');">
+                    <div class="support-card-overlay"></div>
                     <div class="support-card-header">
-                        <div class="support-icon">
-                            <i class="fa {{ $card.icon }}"></i>
-                        </div>
                         <h3 class="support-title">{{ $card.title }}</h3>
                     </div>
                 </div>
@@ -27,14 +30,16 @@
                             </div>
                             <div class="support-details">
                                 <h4>Può trattarsi di:</h4>
-                                <ul class="support-list">
+                                <div class="row mt-4">
                                     {{ range $card.items }}
-                                    <li>
-                                        <strong>{{ .title }}</strong>
-                                        <p>{{ .content }}</p>
-                                    </li>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                                        <div class="support-item-card">
+                                            <h5>{{ .title }}</h5>
+                                            <p>{{ .content }}</p>
+                                        </div>
+                                    </div>
                                     {{ end }}
-                                </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -44,5 +49,33 @@
         </div>
     </div>
 </section>
+<script>
+// prevent closing if already open and manage active state
+document.addEventListener('DOMContentLoaded', function() {
+    var supportCards = document.querySelectorAll('.support-card');
+    
+    supportCards.forEach(function(card) {
+        card.addEventListener('click', function(e) {
+            var targetId = this.getAttribute('data-target');
+            var targetCollapse = document.querySelector(targetId);
+            
+            // if the clicked section is already open, prevent closing
+            if (targetCollapse && targetCollapse.classList.contains('show')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            
+            // remove active class from all cards
+            supportCards.forEach(function(c) {
+                c.classList.remove('active');
+            });
+            
+            // add active class to clicked card
+            this.classList.add('active');
+        });
+    });
+});
+</script>
 {{ end }}
 {{ end }}

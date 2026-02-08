@@ -1,0 +1,22 @@
+---
+enable: true
+topTitle: ""
+title: >
+  ## Dove Ricevo
+service:
+  - content: >
+      #### Via Monte Grappa 6
+
+      Studio Sementis
+      
+
+      Livorno
+    image: /images/service/map-pin.svg
+  - content: >
+      #### Online
+
+      Consulenze psicologiche online
+    image: /images/service/computer.svg
+studioSection:
+  title: "La stanza delle parole"
+  image: /images/location/studio.webp

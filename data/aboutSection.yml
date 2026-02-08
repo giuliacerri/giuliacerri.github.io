@@ -1,21 +1,24 @@
 ---
 enable: true
-topTitle: Chi Sono
+topTitle: ""
 title: >
   ## Giulia Cerri
-
-  Psicologa
+  
+  ### Psicologa
+  
+  Iscritta all'Ordine degli Psicologi della Toscana n.11059
 content: >
-  ### Supporto psicologico professionale
-
-  Sono una psicologa iscritta all'Ordine degli Psicologi della Toscana con il numero 11059.
-  Offro consulenze psicologiche sia in presenza a Livorno che online.
+  Sono una Psicologa specializzata in Psicologia Perinatale. 
+  
+  Mi occupo di accompagnare le persone nei momenti di fatica, di difficoltà relazionale e di cambiamento che la vita ci porta ad affrontare. Credo profondamente che ogni persona porti con sé risorse preziose, anche nei momenti di maggiore fatica.
   
   
-  Il mio approccio è centrato sulla persona, con l'obiettivo di fornire un supporto
-  professionale e personalizzato per il benessere psicologico.
-button1Name: Richiedi informazioni
+  Il mio lavoro nasce da un ascolto attento e rispettoso della storia individuale all'interno di uno spazio sicuro e non giudicante in cui potersi sentire accolti. Iniziare un percorso psicologico significa concedersi uno spazio per fermarsi, ascoltarsi e prendersi cura di sé. 
+  
+  
+  Se senti che questo è il momento giusto, sarò felice di accompagnarti in questo cammino.
+button1Name: Contattami
 button2Name: ""
-button1Target: https://forms.gle/9B6GrxiGAkTFqN8S8
+button1Target: "#contact"
 button2Target: ""
 image: images/about/me.jpg
