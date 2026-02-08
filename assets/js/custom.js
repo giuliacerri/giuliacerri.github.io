@@ -34,4 +34,23 @@ $(document).ready(function() {
       ],
     });
   }
+
+  // Support cards accordion behavior
+  $('.support-card').on('click', function() {
+    // Remove active class from all cards
+    $('.support-card').removeClass('active');
+    // Add active class to clicked card
+    $(this).addClass('active');
+  });
+
+  // Also handle when collapse events trigger
+  $('.support-collapse').on('show.bs.collapse', function() {
+    var targetId = $(this).attr('id');
+    $('.support-card[data-target="#' + targetId + '"]').addClass('active');
+  });
+
+  $('.support-collapse').on('hide.bs.collapse', function() {
+    var targetId = $(this).attr('id');
+    $('.support-card[data-target="#' + targetId + '"]').removeClass('active');
+  });
 });

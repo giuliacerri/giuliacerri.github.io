@@ -1,0 +1,56 @@
+---
+enable: true
+cards:
+  - id: psicologico
+    title: Sostegno Psicologico
+    icon: fa-user
+    description: Mi occupo di difficoltà emotive, relazionali e dei momenti di transizione che possono generare disorientamento o sofferenza. I percorsi che propongo sono personalizzati e costruiti insieme, nel rispetto dell'unicità di ciascuno e dei tempi individuali. Attraverso un ascolto attento e non giudicante, accompagno le persone nel rafforzare le proprie risorse, aumentare la consapevolezza di sé e trovare nuove modalità per affrontare le difficoltà.
+    items:
+      - title: Promozione del benessere
+        content: >
+          Percorsi orientati a favorire il benessere psicologico della persona, 
+          valorizzando le risorse individuali e relazionali e sostenendo una maggiore 
+          consapevolezza di sé e dei propri bisogni.
+      - title: Stress
+        content: >
+          Sostegno psicologico volto a riconoscere e gestire lo stress emotivo e 
+          relazionale, promuovendo strategie di coping funzionali e un miglior 
+          equilibrio tra richieste esterne e risorse personali.
+      - title: Cambiamenti di vita
+        content: >
+          Accompagnamento nei momenti di transizione (personali, familiari o relazionali), 
+          favorendo l'elaborazione emotiva del cambiamento e sostenendo l'adattamento a 
+          nuovi ruoli, identità e assetti di vita.
+      - title: Orientamento scolastico e lavorativo
+        content: >
+          Percorsi di supporto rivolti ad adolescenti e giovani adulti per accompagnarli 
+          nel processo di scelta del percorso di studi o professionale. Attraverso 
+          l'esplorazione delle risorse personali, degli interessi, delle attitudini e dei 
+          valori, il sostegno psicologico favorisce decisioni consapevoli e realistiche, 
+          aiutando a gestire dubbi, pressioni esterne e vissuti di incertezza legati al futuro.
+  - id: perinatale
+    title: Sostegno Psicologico Perinatale
+    icon: fa-child
+    description: Accompagno e sostengo il nucleo familiare nel periodo che va dal progetto generativo alla gravidanza, dalla nascita ai primi anni di vita del bambino. Il focus è sul benessere della triade madre–padre–bambino, con l'obiettivo di rafforzarne le competenze e le risorse individuali e relazionali. Attraverso l'ascolto attivo e non giudicante della donna e della sua famiglia, il supporto psicologico perinatale favorisce scelte consapevoli e sostiene l'acquisizione del ruolo genitoriale fin dalle fasi precoci.
+    items:
+      - title: Gravidanza
+        content: >
+          Spazio di ascolto e sostegno per accogliere vissuti, emozioni e trasformazioni 
+          legate alla gravidanza, promuovendo il benessere psicologico della donna e della 
+          coppia e favorendo un legame consapevole con il bambino in arrivo.
+      - title: Nascita e post-partum
+        content: >
+          Interventi di sostegno nel periodo successivo alla nascita, per accompagnare 
+          l'adattamento alla genitorialità, sostenere il benessere emotivo dei genitori e 
+          favorire la costruzione di una relazione genitore–bambino sicura e sintonizzata.
+      - title: Genitorialità e coppia
+        content: >
+          Percorsi di sostegno psicologico rivolti alla coppia genitoriale per sostenere 
+          la relazione, favorire una comunicazione efficace e promuovere un equilibrio tra 
+          dimensione di coppia e ruolo genitoriale, nel rispetto dei bisogni di ciascun 
+          membro della famiglia.
+      - title: Eventi critici
+        content: >
+          Sostegno psicologico nei momenti di perdita, trauma o eventi critici (come lutti 
+          perinatali, infertilità, difficoltà ostetriche o esperienze traumatiche), offrendo 
+          uno spazio protetto per l'elaborazione emotiva e la riorganizzazione del vissuto.

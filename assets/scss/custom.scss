@@ -36,6 +36,11 @@ $danger: #A8685F !default;
   background: #4A5D3F !important;
 }
 
+// footer cta banner - sage green background
+.footer__cta {
+  background: linear-gradient(135deg, #6B8E5F 0%, #85A673 100%) !important;
+}
+
 // About section blob
 .about_content-inner-blob path {
   fill: url(#c) !important;
@@ -98,6 +103,200 @@ a, .nav-link {
 // Hero blob gradient
 .hero_content .blob {
   fill: url(#a) !important;
+}
+
+// Support Section Styles - Card-based design
+.support {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+
+  .support-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 60px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(107, 142, 95, 0.2);
+    }
+
+    &.active {
+      box-shadow: 0 15px 35px rgba(107, 142, 95, 0.25);
+    }
+
+    &.support-card-light {
+      background: linear-gradient(135deg, #85A673 0%, #6B8E5F 100%);
+      color: #ffffff;
+    }
+
+    &.support-card-dark {
+      background: linear-gradient(135deg, #5A7A4F 0%, #4A5D3F 100%);
+      color: #ffffff;
+    }
+
+    .support-card-header {
+      z-index: 2;
+      position: relative;
+
+      .support-icon {
+        margin-bottom: 25px;
+
+        i {
+          font-size: 70px;
+          color: #ffffff;
+          opacity: 0.9;
+        }
+      }
+
+      .support-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+        line-height: 1.3;
+      }
+    }
+
+    // Add subtle background pattern
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.05;
+      background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+      background-size: 20px 20px;
+      z-index: 1;
+    }
+  }
+
+  .support-collapse {
+    margin-top: 30px;
+    
+    .support-content {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 50px;
+      box-shadow: 0 5px 20px rgba(107, 142, 95, 0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+
+      .support-intro {
+        margin-bottom: 35px;
+        
+        p {
+          font-size: 17px;
+          line-height: 1.9;
+          color: $body-color;
+          max-width: 100%;
+        }
+      }
+
+      .support-details {
+        h4 {
+          font-size: 21px;
+          font-weight: 600;
+          color: $headings-color;
+          margin-bottom: 25px;
+        }
+
+        .support-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            margin-bottom: 28px;
+            padding-left: 22px;
+            border-left: 4px solid $primary;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            strong {
+              display: block;
+              font-size: 17px;
+              font-weight: 600;
+              color: $headings-color;
+              margin-bottom: 10px;
+            }
+
+            p {
+              font-size: 15px;
+              line-height: 1.8;
+              color: $body-color;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .support {
+    padding: 40px 0;
+
+    .support-card {
+      min-height: 250px;
+      padding: 40px 30px;
+      margin-bottom: 20px;
+
+      .support-card-header {
+        .support-icon i {
+          font-size: 50px;
+        }
+
+        .support-title {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .support-collapse {
+      .support-content {
+        padding: 35px 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .support {
+    .support-card {
+      min-height: 220px;
+      padding: 35px 25px;
+
+      .support-card-header {
+        .support-icon i {
+          font-size: 45px;
+        }
+
+        .support-title {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .support-collapse {
+      .support-content {
+        padding: 30px 20px;
+      }
+    }
+  }
 }
 
 // Service section blob

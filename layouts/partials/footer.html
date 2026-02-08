@@ -35,12 +35,12 @@
 		<div class="row footer__widget">
 			<div class="col-lg-4">
 				<div class="footer__widget_logo mb-5">
-					<img src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo">
+					<img src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo" style="max-width: 150px;">
 				</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="text-light footer__widget_sitemap mb-5">
-					<h4 class="base-font">Sitemap</h4>
+					<!-- sitemap heading removed -->
 					<ul class="unstyle-list small">
 						{{ $sitemap := .Site.Menus.sitemap }}
 						{{ range $sitemap }}
