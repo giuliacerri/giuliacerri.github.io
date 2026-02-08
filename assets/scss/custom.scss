@@ -28,7 +28,17 @@ $danger: #A8685F !default;
 
 // Resume section - force green background
 .resume__background {
-  background: linear-gradient(135deg, #4A5D3F 0%, #5A7A4F 100%) !important;
+  background: linear-gradient(135deg, #5A7A4F 0%, #5A7A4F 100%) !important;
+}
+
+// About section - force green background instead of blue
+.about_content-inner {
+  background: linear-gradient(135deg, #5A7A4F 0%, #5A7A4F 100%) !important;
+  
+  // ensure text remains light colored for readability
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: #ffffff !important;
+  }
 }
 
 // Footer - green background
