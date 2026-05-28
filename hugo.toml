@@ -38,8 +38,8 @@ DefaultContentLanguage = "it"
   weight = 4
 
 [params]
-  logo = "images/logo.ico"
-  footerLogo = "images/logo.ico"
+  logo = "images/site-navigation/logo.webp"
+  footerLogo = "images/contact/widget-logo.webp"
   contactLink = "contact"
   blogPageURL = "blog"
   copyright = "All right reserved copyright © Giulia Cerri 2025"
@@ -83,3 +83,8 @@ DefaultContentLanguage = "it"
   icon = "fa-linkedin"
   url = "https://www.linkedin.com/in/giulia-cerri-823920337/"
   weight = 4
+
+[[params.social]]
+  icon = "fa-youtube"
+  url = "https://youtube.com/@giuliacerripsicologa"
+  weight = 5

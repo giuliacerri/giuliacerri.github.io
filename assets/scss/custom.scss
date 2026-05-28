@@ -1544,34 +1544,36 @@ body {
     }
   }
   
-  // whatsapp social icon styling
+  // social icons hover - brand colors
   &__footer_social {
-    a[href*="whatsapp"],
-    a[href*="wa.me"] {
-      transition: all 0.3s ease !important;
-      
+    a {
+      transition: color 0.25s ease, transform 0.25s ease !important;
+      display: inline-block !important;
+
       &:hover {
-        color: #25D366 !important;
-        transform: scale(1.15) !important;
-      }
-      
-      .fa-whatsapp {
-        transition: all 0.3s ease !important;
+        transform: scale(1.2) !important;
       }
     }
-    
-    // facebook social icon styling
+
+    a[href*="instagram"] {
+      &:hover { color: #E1306C !important; }
+    }
+
+    a[href*="whatsapp"],
+    a[href*="wa.me"] {
+      &:hover { color: #25D366 !important; }
+    }
+
     a[href*="facebook"] {
-      transition: all 0.3s ease !important;
-      
-      &:hover {
-        color: #1877F2 !important;
-        transform: scale(1.15) !important;
-      }
-      
-      .fa-facebook {
-        transition: all 0.3s ease !important;
-      }
+      &:hover { color: #1877F2 !important; }
+    }
+
+    a[href*="linkedin"] {
+      &:hover { color: #0A66C2 !important; }
+    }
+
+    a[href*="youtube"] {
+      &:hover { color: #FF0000 !important; }
     }
   }
 }
