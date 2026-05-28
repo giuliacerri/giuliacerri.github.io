@@ -1180,7 +1180,7 @@ body {
     }
     
     .hero_content {
-      text-align: center !important;
+      text-align: left !important;
       padding: 0 !important;
       margin: 0 auto !important;
       width: 100% !important;
@@ -1203,27 +1203,27 @@ body {
         display: block !important;
         font-size: 1.2rem !important;
         width: 100% !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       
       h1 {
-        font-size: 2.5rem !important;
+        font-size: 1.9rem !important;
         line-height: 1.2 !important;
         margin-bottom: 0.5rem !important;
         width: 100% !important;
         word-wrap: break-word !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       
       p {
-        font-size: 1.3rem !important;
+        font-size: 0.95rem !important;
         margin-bottom: 1rem !important;
         width: 100% !important;
-        text-align: center !important;
+        text-align: left !important;
       }
       
       .btn {
-        margin: 1rem auto 0 !important;
+        margin: 1rem 0 0 !important;
         display: inline-block !important;
         width: auto !important;
         max-width: calc(100% - 40px) !important;
@@ -1247,8 +1247,14 @@ body {
 // Hide entire image container on mobile to prevent layout shifts
 @media (max-width: 991px) {
   .about_content-inner {
-    padding: 0 !important;
+    padding: 35px 30px !important;
     margin: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .about_content-inner {
+    padding: 30px 25px !important;
   }
   
   // Ensure navbar toggle is visible
