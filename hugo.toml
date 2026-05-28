@@ -1,8 +1,10 @@
 baseURL = "https://giuliacerripicologa.it"
 languageCode = "it"
-title = "Giulia Cerri"
+defaultContentLanguage = "it"
+title = "Giulia Cerri | Psicologa Perinatale a Livorno"
 theme = "portio"
 enableRobotsTXT = true
+canonifyURLs = false
 
 [pagination]
   pagerSize = 6
@@ -11,7 +13,7 @@ DefaultContentLanguage = "it"
 
 [sitemap]
   changefreq = "monthly"
-  priority = 0.5
+  priority = 0.8
   filename = "sitemap.xml"
 
 # Main Menu
@@ -21,13 +23,13 @@ DefaultContentLanguage = "it"
   weight = 1
 
 [[menu.main]]
-  name = "About"
-  url = "#resume"
+  name = "Servizi"
+  url = "#support"
   weight = 2
 
 [[menu.main]]
-  name = "Servizi"
-  url = "#support"
+  name = "About"
+  url = "#resume"
   weight = 3
 
 [[menu.main]]
@@ -42,11 +44,12 @@ DefaultContentLanguage = "it"
   blogPageURL = "blog"
   copyright = "All right reserved copyright © Giulia Cerri 2025"
   googleAnalytics = ""
-  # We're using formspree.io for form handling - you can create a free account
   fabformURL = ""
-  
+
   author = "Giulia Cerri"
-  description = "Portfolio and personal website"
+  description = "Giulia Cerri è una Psicologa iscritta all'Ordine degli Psicologi della Toscana, specializzata in Psicologia Perinatale. Offre supporto psicologico individuale e di coppia a Livorno e online."
+  keywords = "psicologa livorno, psicologia perinatale, supporto psicologico, gravidanza, post parto, psicologia online, psicologa toscana, giulia cerri psicologa"
+  ogImage = "images/og-image.png"
 
 [params.address]
   email = "giuliacerri.psicologa@gmail.com"

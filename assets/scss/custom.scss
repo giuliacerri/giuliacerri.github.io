@@ -960,6 +960,11 @@ body {
   
   .hero {
     padding-top: 40px !important;
+    
+    .col-lg-6, .col-md-12 {
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+    }
   }
 }
 
@@ -1094,7 +1099,7 @@ body {
     }
     
     .col-lg-6 {
-      padding: 0 20px !important;
+      padding: 0 45px !important;
       margin: 0 !important;
       width: 100% !important;
       max-width: 100% !important;
@@ -1119,7 +1124,6 @@ body {
       .mb-5 {
         margin-bottom: 2rem !important;
         width: 100% !important;
-        padding: 0 !important;
       }
       
       .top-title {
