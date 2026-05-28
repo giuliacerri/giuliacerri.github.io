@@ -122,7 +122,19 @@ a, .nav-link {
   
   .support-section-title {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+  }
+
+  .support-section-hint {
+    font-size: 15px;
+    color: #6B8E5F;
+    font-style: italic;
+    margin-bottom: 0;
+    letter-spacing: 0.01em;
+
+    .fa {
+      margin-right: 6px;
+    }
   }
 
   .support-card {
@@ -198,6 +210,62 @@ a, .nav-link {
       }
     }
 
+    .support-card-cta {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background 0.2s ease, border-color 0.2s ease;
+
+      .support-card-cta-close {
+        display: none;
+      }
+
+      .fa {
+        margin-left: 4px;
+        font-size: 11px;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &.active .support-card-cta {
+      background: rgba(255, 255, 255, 0.35);
+      border-color: #ffffff;
+
+      .support-card-cta-open {
+        display: none;
+      }
+
+      .support-card-cta-close {
+        display: inline;
+      }
+    }
+
+    &:not(.active) {
+      animation: subtlePulse 3s ease-in-out infinite;
+    }
+
+    &:not(.active):hover {
+      animation: none;
+    }
+
+  }
+
+  @keyframes subtlePulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(107, 142, 95, 0.15); }
+    50% { box-shadow: 0 4px 25px rgba(107, 142, 95, 0.35); }
   }
 
   .support-collapse {
@@ -290,7 +358,12 @@ a, .nav-link {
     
     .support-section-title {
       font-size: 28px !important;
-      margin-bottom: 30px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .support-section-hint {
+      font-size: 14px !important;
+      margin-bottom: 20px !important;
     }
 
     .support-card {
