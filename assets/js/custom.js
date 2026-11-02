@@ -24,12 +24,10 @@ $(document).ready(function() {
           },
         },
         {
+          // le card sono sempre e solo 2: sotto i 768px niente carosello,
+          // si impilano entrambe intere a piena larghezza
           breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-          },
+          settings: 'unslick',
         },
       ],
     });

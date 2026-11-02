@@ -1798,17 +1798,6 @@ img {
   }
 }
 
-// fix touch scrolling on mobile
-@media (max-width: 767px) {
-  .service__slider {
-    -webkit-overflow-scrolling: touch !important;
-    
-    .slick-list {
-      overflow: visible !important;
-    }
-  }
-}
-
 // optimize button sizes for mobile
 @media (max-width: 767px) {
   .btn {
