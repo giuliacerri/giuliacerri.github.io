@@ -961,6 +961,14 @@ a {
     min-height: 350px !important;
     display: flex !important;
     flex-direction: column !important;
+    text-align: center;
+
+    // l'icona e' un flex item largo quanto il suo contenuto: senza
+    // margini automatici resta ancorata a sinistra nella card
+    &-icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
     
     > div:last-child {
       flex: 1 !important;
