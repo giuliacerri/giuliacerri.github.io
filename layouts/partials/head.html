@@ -175,6 +175,8 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" />
 
   {{ "<!-- stylesheets -->" | safeHTML }}
+  <link rel="stylesheet" href="{{ "plugins/slick/slick.css" | absURL }}" />
+  <link rel="stylesheet" href="{{ "plugins/slick/slick-theme.css" | absURL }}" />
   <link rel="stylesheet" href="{{ "plugins/font-awesome/css/font-awesome.min.css" | absURL }}" />
   {{ $style := resources.Get "scss/custom.scss" | css.Sass | minify }}
   <link href="{{ $style.Permalink }}" rel="stylesheet" />
