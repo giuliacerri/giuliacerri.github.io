@@ -32,75 +32,140 @@
 
   {{ "<!-- schema.org json-ld -->" | safeHTML }}
   {{ if .IsHome }}
+  {{ $base := .Site.BaseURL }}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Giulia Cerri",
-    "jobTitle": "Psicologa",
-    "description": "{{ $desc }}",
-    "url": "{{ .Site.BaseURL }}",
-    "image": "{{ "images/about/about-img.webp" | absURL }}",
-    "email": "giuliacerri.psicologa@gmail.com",
-    "telephone": "+393505904363",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Monte Grappa 6",
-      "addressLocality": "Livorno",
-      "addressRegion": "Toscana",
-      "addressCountry": "IT"
-    },
-    "sameAs": [
-      "https://www.instagram.com/giuliacerri.psicologa",
-      "https://www.facebook.com/profile.php?id=61585755094853",
-      "https://www.linkedin.com/in/giulia-cerri-823920337/"
-    ],
-    "knowsAbout": [
-      "Psicologia Perinatale",
-      "Supporto psicologico",
-      "Gravidanza",
-      "Post parto",
-      "Psicologia di coppia"
-    ],
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Psicologa",
-      "occupationLocation": {
-        "@type": "City",
-        "name": "Livorno"
+    "@graph": [
+      {
+        "@type": "Psychologist",
+        "@id": "{{ $base }}#practice",
+        "name": "Giulia Cerri - Psicologa Perinatale",
+        "description": "{{ $desc }}",
+        "url": "{{ $base }}",
+        "telephone": "+393505904363",
+        "email": "giuliacerri.psicologa@gmail.com",
+        "image": "{{ $ogImage }}",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "medicalSpecialty": "Psychiatric",
+        "founder": { "@id": "{{ $base }}#giuliacerri" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Monte Grappa 6",
+          "addressLocality": "Livorno",
+          "addressRegion": "Toscana",
+          "postalCode": "57100",
+          "addressCountry": "IT"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.5485",
+          "longitude": "10.3106"
+        },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=43.5485,10.3106",
+        "areaServed": [
+          { "@type": "City", "name": "Livorno" },
+          { "@type": "AdministrativeArea", "name": "Toscana" },
+          { "@type": "Country", "name": "Italia" }
+        ],
+        "availableService": [
+          {
+            "@type": "MedicalTherapy",
+            "name": "Sostegno psicologico individuale",
+            "description": "Percorsi di sostegno per stress, cambiamenti di vita, promozione del benessere e orientamento."
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Psicologia perinatale",
+            "description": "Supporto psicologico in gravidanza, nascita e post-partum, genitorialità ed eventi critici."
+          },
+          {
+            "@type": "MedicalTherapy",
+            "name": "Consulenza psicologica di coppia",
+            "description": "Supporto alla coppia nella transizione alla genitorialità e nelle difficoltà relazionali."
+          }
+        ],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }],
+        "sameAs": [
+          "https://www.instagram.com/giuliacerri.psicologa",
+          "https://www.facebook.com/profile.php?id=61585755094853",
+          "https://www.linkedin.com/in/giulia-cerri-823920337/",
+          "https://youtube.com/@giuliacerripsicologa"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ $base }}#giuliacerri",
+        "name": "Giulia Cerri",
+        "jobTitle": "Psicologa",
+        "description": "{{ $desc }}",
+        "url": "{{ $base }}",
+        "image": "{{ "images/about/me.jpg" | absURL }}",
+        "email": "giuliacerri.psicologa@gmail.com",
+        "telephone": "+393505904363",
+        "worksFor": { "@id": "{{ $base }}#practice" },
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Iscrizione all'Albo",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Ordine degli Psicologi della Toscana"
+          },
+          "identifier": "11059"
+        },
+        "knowsLanguage": "it",
+        "knowsAbout": [
+          "Psicologia Perinatale",
+          "Supporto psicologico",
+          "Gravidanza",
+          "Post parto",
+          "Psicologia di coppia"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Monte Grappa 6",
+          "addressLocality": "Livorno",
+          "addressRegion": "Toscana",
+          "addressCountry": "IT"
+        },
+        "sameAs": [
+          "https://www.instagram.com/giuliacerri.psicologa",
+          "https://www.facebook.com/profile.php?id=61585755094853",
+          "https://www.linkedin.com/in/giulia-cerri-823920337/",
+          "https://youtube.com/@giuliacerripsicologa"
+        ]
+      },
+      {{ with .Site.Data.faqSection }}{{ if .enable }}
+      {
+        "@type": "FAQPage",
+        "@id": "{{ $base }}#faq",
+        "mainEntity": [
+          {{ range $i, $item := .items }}{{ if $i }},{{ end }}
+          {
+            "@type": "Question",
+            "name": {{ $item.question | jsonify | safeJS }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ $item.answer | jsonify | safeJS }}
+            }
+          }{{ end }}
+        ]
+      },
+      {{ end }}{{ end }}
+      {
+        "@type": "WebSite",
+        "@id": "{{ $base }}#website",
+        "url": "{{ $base }}",
+        "name": "{{ .Site.Title }}",
+        "inLanguage": "it-IT",
+        "publisher": { "@id": "{{ $base }}#practice" }
       }
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Giulia Cerri - Psicologa",
-    "description": "{{ $desc }}",
-    "url": "{{ .Site.BaseURL }}",
-    "telephone": "+393505904363",
-    "email": "giuliacerri.psicologa@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Monte Grappa 6",
-      "addressLocality": "Livorno",
-      "addressRegion": "Toscana",
-      "postalCode": "57100",
-      "addressCountry": "IT"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "43.5485",
-      "longitude": "10.3106"
-    },
-    "openingHours": "Mo-Fr 09:00-19:00",
-    "priceRange": "€€",
-    "image": "{{ $ogImage }}",
-    "sameAs": [
-      "https://www.instagram.com/giuliacerri.psicologa",
-      "https://www.facebook.com/profile.php?id=61585755094853",
-      "https://www.linkedin.com/in/giulia-cerri-823920337/"
     ]
   }
   </script>
@@ -110,10 +175,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" />
 
   {{ "<!-- stylesheets -->" | safeHTML }}
-  <link rel="stylesheet" href="{{ "plugins/slick/slick.css" | absURL }}" />
-  <link rel="stylesheet" href="{{ "plugins/slick/slick-theme.css" | absURL }}" />
   <link rel="stylesheet" href="{{ "plugins/font-awesome/css/font-awesome.min.css" | absURL }}" />
-  <link rel="stylesheet" href="{{ "plugins/magnafic-popup/magnific-popup.css" | absURL }}" />
   {{ $style := resources.Get "scss/custom.scss" | css.Sass | minify }}
   <link href="{{ $style.Permalink }}" rel="stylesheet" />
 

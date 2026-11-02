@@ -34,7 +34,7 @@
 		<div class="row footer__widget">
 			<div class="col-lg-4">
 				<div class="footer__widget_logo mb-5">
-					<img src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo" style="max-width: 150px;">
+					<img loading="lazy" decoding="async" src="{{ .Site.Params.footerLogo | absURL }}" alt="widget-logo" style="max-width: 150px;">
 				</div>
 			</div>
 			<div class="col-lg-4">
@@ -64,7 +64,7 @@
 						{{ end }}
 						{{ with .Site.Params.address.phone }}
 						<li class="mb-2">
-							<a class="text-light" href="tel:{{ . }}"><i class="fa fa-phone mr-2"></i>{{ . }}</a>
+							<a class="text-light" href="tel:{{ replace . " " "" }}"><i class="fa fa-phone mr-2"></i>{{ . }}</a>
 						</li>
 						{{ end }}
 						<li class="mb-2">
@@ -94,7 +94,7 @@
 		</div>
 	</div>
 </section>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ .Site.Params.map.APIkey }}&libraries=geometry"></script>
+{{ with .Site.Params.map.APIkey }}<script src="https://maps.googleapis.com/maps/api/js?key={{ . }}&libraries=geometry"></script>{{ end }}
 <script src="{{ "plugins/jQuery/jquery.min.js" | absURL }}"></script>
 <script src="{{ "plugins/bootstrap/bootstrap.min.js" | absURL }}"></script>
 <script src="{{ "plugins/slick/slick.min.js" | absURL }}"></script>

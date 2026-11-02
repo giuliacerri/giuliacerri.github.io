@@ -1,5 +1,5 @@
 ---
-title: "Chi Sono | Giulia Cerri Psicologa"
+title: "Chi Sono"
 description: "Giulia Cerri, Psicologa iscritta all'Ordine degli Psicologi della Toscana n.11059, specializzata in Psicologia Perinatale. Consulenze individuali e di coppia a Livorno e online."
 featured_image: ''
 ---

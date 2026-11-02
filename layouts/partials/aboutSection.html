@@ -15,10 +15,10 @@
                 <div class="about_content">
                     <div class="about_content-thumb">
                         <div class="about-svg">
-                            <img src="images/hero/figure-svg.svg" alt="figure-svg">
+                            <img loading="lazy" decoding="async" src="images/hero/figure-svg.svg" alt="">
                         </div>
                         <div class="about_content-thumb-image">
-                            <img src="{{ .image | absURL }}" alt="about-img" class="img-fluid"
+                            <img fetchpriority="high" decoding="async" src="{{ .image | absURL }}" alt="Giulia Cerri, psicologa perinatale a Livorno" class="img-fluid"
                                 style='-webkit-mask: url({{"images/about/about-mask-svg.svg" | absURL}}); mask: url({{"images/about/about-mask-svg.svg" | absURL}}); -webkit-mask-size: contain; mask-size: contain;'>
                         </div>
                     </div>

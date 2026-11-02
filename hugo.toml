@@ -4,6 +4,7 @@ defaultContentLanguage = "it"
 title = "Giulia Cerri | Psicologa Perinatale a Livorno"
 theme = "portio"
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
 canonifyURLs = false
 
 [pagination]

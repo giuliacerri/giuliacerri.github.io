@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h1 class="mb-4">{{ .Title }}</h1>
+        {{ with .Content }}<div class="content mb-5">{{ . }}</div>{{ end }}
+        {{ range .Pages }}
+        <article class="mb-4">
+          <h2 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Date }}<p class="text-muted small"><time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 January 2006" }}</time></p>{{ end }}
+          <p>{{ .Summary }}</p>
+        </article>
+        {{ else }}
+        <p>Nessun articolo pubblicato al momento.</p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

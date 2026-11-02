@@ -1,0 +1,27 @@
+---
+enable: true
+title: Domande Frequenti
+# Le risposte qui sotto alimentano SIA la sezione visibile SIA lo schema
+# FAQPage: modificare solo questo file tiene i due allineati.
+items:
+  - question: Dove ricevi i pazienti?
+    answer: >-
+      Ricevo in presenza a Livorno, in Via Monte Grappa 6, e online tramite
+      videochiamata per chi non può raggiungere lo studio.
+  - question: È possibile fare le sedute online?
+    answer: >-
+      Sì. Le consulenze online si svolgono in videochiamata e sono pensate per
+      chi vive fuori Livorno, è in viaggio o preferisce seguire il percorso da casa.
+  - question: Di cosa ti occupi?
+    answer: >-
+      Mi occupo di sostegno psicologico individuale e di psicologia perinatale:
+      gravidanza, nascita e post-partum, genitorialità e coppia, oltre a stress,
+      cambiamenti di vita, promozione del benessere e orientamento scolastico e lavorativo.
+  - question: Sei iscritta all'Albo degli Psicologi?
+    answer: >-
+      Sì, sono iscritta all'Ordine degli Psicologi della Toscana con il numero 11059.
+  - question: Come posso prenotare un primo appuntamento?
+    answer: >-
+      Puoi prenotare direttamente online dal pulsante "Prenota Ora", oppure
+      contattarmi via WhatsApp, telefono o email per concordare insieme un
+      primo appuntamento conoscitivo.
