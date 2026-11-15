@@ -20,9 +20,10 @@ Per qualsiasi richiesta sui tuoi dati, compreso l'esercizio dei diritti descritt
 
 | Situazione | Dati | Finalità | Base giuridica |
 |---|---|---|---|
-| **Richiesta di appuntamento** tramite il modulo di prenotazione (Cal.com) | Nome, cognome, email, telefono, breve motivazione della richiesta, data e ora scelte, eventuale risposta alla domanda "Come hai conosciuto lo studio?" | Valutare la richiesta, confermarla o rifiutarla, organizzare il colloquio | Esecuzione di misure precontrattuali su tua richiesta (art. 6, par. 1, lett. b GDPR). Se nella motivazione indichi **dati sulla salute**, il consenso esplicito che ti viene chiesto nel modulo (art. 9, par. 2, lett. a GDPR). Scrivi solo ciò che ritieni necessario. |
+| **Richiesta di appuntamento** tramite il modulo di prenotazione (Cal.com) | Nome, cognome, email, telefono, breve motivazione della richiesta, data e ora scelte | Valutare la richiesta, confermarla o rifiutarla, organizzare il colloquio | Esecuzione di misure precontrattuali su tua richiesta (art. 6, par. 1, lett. b GDPR). Se nella motivazione indichi **dati sulla salute**, il consenso esplicito che ti viene chiesto nel modulo (art. 9, par. 2, lett. a GDPR). Scrivi solo ciò che ritieni necessario. |
 | **Contatti** via email, telefono o WhatsApp | I dati che mi comunichi (recapito, contenuto del messaggio) | Rispondere alla tua richiesta | Art. 6, par. 1, lett. b e f GDPR (rispondere a una richiesta; legittimo interesse a gestire le comunicazioni) |
 | **Navigazione sul sito** | Dati tecnici (per esempio indirizzo IP e informazioni sul dispositivo) trattati dal servizio che ospita il sito | Far funzionare e proteggere il sito | Legittimo interesse (art. 6, par. 1, lett. f GDPR) |
+| **Video e mappa incorporati** (YouTube, Google Maps) | Dati tecnici ricevuti da Google quando la pagina li carica (per esempio indirizzo IP e informazioni sul dispositivo) | Mostrare il video di presentazione e la mappa dello studio | Legittimo interesse (art. 6, par. 1, lett. f GDPR) a presentare lo studio e a farlo raggiungere |
 | **Statistiche** (Google Analytics) | Dati aggregati sull'uso del sito (pagine viste, click su Prenota, WhatsApp, telefono, richieste inviate) | Capire come viene usato il sito e migliorarlo | **Solo con il tuo consenso** (art. 6, par. 1, lett. a GDPR e art. 122 del Codice privacy) |
 | **Misurazione degli annunci** (Google Ads) | Informazione che una richiesta di appuntamento è arrivata dopo aver visto un annuncio | Capire quali annunci funzionano | **Solo con il tuo consenso** (come sopra) |
 
@@ -33,7 +34,7 @@ Non uso i dati del sito per profilarti né per mostrarti annunci basati sul tuo 
 I dati sono trattati da me. Per fornire il servizio mi avvalgo di fornitori che trattano i dati per mio conto o come titolari autonomi, secondo i loro termini:
 
 - **Cal.com**: gestione delle richieste di appuntamento e invio delle email di conferma.
-- **Google** (Analytics e Google Ads): solo se dai il consenso. Google Maps e YouTube solo se scegli di caricare mappa o video.
+- **Google** (Analytics e Google Ads): solo se dai il consenso. **Google Maps e YouTube**: la mappa e il video sono incorporati nel sito e vengono caricati all'apertura delle pagine che li contengono (vedi il punto 7).
 - **GitHub (GitHub Pages)**: ospitano il sito web.
 - La **piattaforma di videochiamata** indicata nella conferma, per i colloqui online.
 - **WhatsApp**, se scegli di scrivermi lì.
@@ -61,7 +62,7 @@ Il conferimento dei dati richiesti nel modulo di prenotazione è necessario per 
 
 ## 7. Cookie e strumenti di terze parti
 
-All'apertura del sito non viene caricato nessuno strumento di tracciamento. Il sito ospita anche i caratteri (font) sui propri server, quindi non contatta Google Fonts. Ti viene chiesto di scegliere con un banner con pulsanti **"Accetta tutti"** e **"Rifiuta tutti"** di pari evidenza, oppure **"Personalizza"**. Puoi cambiare scelta in qualsiasi momento da **"Gestisci cookie"**.
+All'apertura del sito **non vengono caricati** Google Analytics né Google Ads: partono solo dopo il tuo consenso. Il sito ospita anche i caratteri (font) sui propri server, quindi non contatta Google Fonts. Ti viene chiesto di scegliere con un banner con pulsanti **"Accetta tutti"** e **"Rifiuta tutti"** di pari evidenza, oppure **"Personalizza"**. Puoi cambiare scelta in qualsiasi momento da **"Gestisci cookie"**.
 
 | Nome | Fornitore | Finalità | Durata indicativa | Categoria |
 |---|---|---|---|---|
@@ -69,7 +70,9 @@ All'apertura del sito non viene caricato nessuno strumento di tracciamento. Il s
 | `_ga`, `_ga_V9KSVJZLNC` | Google (Analytics 4) | Distinguere le visite e misurare l'uso del sito | fino a 2 anni | Statistiche |
 | `_gcl_au`, `_gcl_aw`, `_gac_*` | Google (Ads) | Misurare se un annuncio ha portato a una richiesta di appuntamento | fino a 90 giorni | Misurazione degli annunci |
 
-Le durate sono quelle indicate di norma da Google e possono cambiare. **Mappa e video**: il sito non li carica da solo. Solo se clicchi su "Mostra la mappa" o "Guarda il video" vengono caricati contenuti di Google Maps o YouTube, che possono usare propri cookie. Puoi evitarlo usando i link "Apri in Google Maps" o "Apri su YouTube", che aprono i servizi in una nuova scheda.
+Le durate sono quelle indicate di norma da Google e possono cambiare.
+
+**Video e mappa (non governati dal banner).** Le pagine che li contengono caricano subito un video di YouTube (in modalità a privacy avanzata, `youtube-nocookie.com`, che non imposta cookie finché non premi "riproduci") e una mappa di Google Maps. Quando succede, Google riceve alcuni dati tecnici (per esempio l'indirizzo IP e informazioni sul tuo dispositivo) e può usare propri cookie o strumenti simili, secondo le sue informative ([policies.google.com/privacy](https://policies.google.com/privacy)). Se non vuoi che accada puoi bloccare questi contenuti dalle impostazioni del browser o con un'estensione di blocco, oppure aprire direttamente [la mappa](https://www.google.com/maps/search/?api=1&query=Via+Monte+Grappa+6+Livorno) e [il video](https://www.youtube.com/watch?v=Bvs6c2TGpdM) sui rispettivi siti.
 
 Puoi anche cancellare o bloccare i cookie dalle impostazioni del tuo browser.
 

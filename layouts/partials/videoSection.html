@@ -10,22 +10,15 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-12">
-                <div class="video-wrapper embed-consent">
-                    {{/* L'iframe non ha "src" finche' l'utente non clicca (vedi consent.html): nessuna chiamata a YouTube/Google prima. */}}
+                <div class="video-wrapper">
                     <iframe
-                        hidden
-                        data-src="{{ .videoURL }}"
+                        src="{{ replace .videoURL "www.youtube.com" "www.youtube-nocookie.com" }}"
                         title="{{ .title }}"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
-                    <div class="embed-consent__placeholder">
-                        <p>Questo video è ospitato su YouTube (Google). Se lo carichi, YouTube può usare cookie e raccogliere dati sulla tua visita.</p>
-                        <button type="button" class="cc-btn cc-btn--solid" data-embed-load>Guarda il video</button>
-                        <p><a href="https://www.youtube.com/watch?v=Bvs6c2TGpdM" target="_blank" rel="noopener">Apri su YouTube</a> &middot; <a href="{{ "privacy/" | relURL }}">Privacy e cookie</a></p>
-                    </div>
                 </div>
             </div>
         </div>
