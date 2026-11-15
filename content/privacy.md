@@ -33,10 +33,10 @@ Non uso i dati del sito per profilarti né per mostrarti annunci basati sul tuo 
 
 I dati sono trattati da me. Per fornire il servizio mi avvalgo di fornitori che trattano i dati per mio conto o come titolari autonomi, secondo i loro termini:
 
-- **Cal.com**: gestione delle richieste di appuntamento e invio delle email di conferma.
+- **Cal.com**: gestione delle richieste di appuntamento e invio delle email di conferma. Il modulo è incorporato nella pagina [Prenota](/prenota/) e viene caricato solo quando scegli il tipo di colloquio.
 - **Google** (Analytics e Google Ads): solo se dai il consenso. **Google Maps e YouTube**: la mappa e il video sono incorporati nel sito e vengono caricati all'apertura delle pagine che li contengono (vedi il punto 7).
 - **GitHub (GitHub Pages)**: ospitano il sito web.
-- La **piattaforma di videochiamata** indicata nella conferma, per i colloqui online.
+- **Google Meet** o **Zoom**, a seconda della piattaforma scelta nel modulo di prenotazione, per i colloqui online.
 - **WhatsApp**, se scegli di scrivermi lì.
 
 I dati non sono diffusi. Possono essere comunicati a terzi solo quando la legge o un'autorità lo richiedono.
@@ -73,6 +73,8 @@ All'apertura del sito **non vengono caricati** Google Analytics né Google Ads: 
 Le durate sono quelle indicate di norma da Google e possono cambiare.
 
 **Video e mappa (non governati dal banner).** Le pagine che li contengono caricano subito un video di YouTube (in modalità a privacy avanzata, `youtube-nocookie.com`, che non imposta cookie finché non premi "riproduci") e una mappa di Google Maps. Quando succede, Google riceve alcuni dati tecnici (per esempio l'indirizzo IP e informazioni sul tuo dispositivo) e può usare propri cookie o strumenti simili, secondo le sue informative ([policies.google.com/privacy](https://policies.google.com/privacy)). Se non vuoi che accada puoi bloccare questi contenuti dalle impostazioni del browser o con un'estensione di blocco, oppure aprire direttamente [la mappa](https://www.google.com/maps/search/?api=1&query=Via+Monte+Grappa+6+Livorno) e [il video](https://www.youtube.com/watch?v=Bvs6c2TGpdM) sui rispettivi siti.
+
+**Modulo di prenotazione (Cal.com).** La pagina [Prenota](/prenota/) incorpora il modulo di Cal.com, che viene caricato solo dopo che scegli «In studio» o «Online». Cal.com può usare propri cookie tecnici necessari al funzionamento del modulo, secondo la propria informativa. Se il modulo non si carica o preferisci non usarlo, puoi contattarmi per telefono, email o WhatsApp.
 
 Puoi anche cancellare o bloccare i cookie dalle impostazioni del tuo browser.
 

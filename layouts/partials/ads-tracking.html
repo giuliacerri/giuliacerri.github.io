@@ -50,7 +50,7 @@
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var name = null;
-    if (/^https?:\/\/(www\.)?cal\.com\/giuliacerri\.psicologa/i.test(href)) name = 'prenota_click';
+    if (/^(https?:\/\/(www\.)?giuliacerripsicologa\.it)?\/prenota\/?([?#]|$)/i.test(href) || /^https?:\/\/(www\.)?cal\.com\/giuliacerri\.psicologa/i.test(href)) name = 'prenota_click';
     else if (/^tel:/i.test(href)) name = 'telefono_click';
     else if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href)) name = 'whatsapp_click';
     else if (/^mailto:/i.test(href)) name = 'email_click';
