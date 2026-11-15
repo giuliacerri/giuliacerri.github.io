@@ -4,12 +4,8 @@
 
   1) Click sui link di contatto  -> eventi GA4: prenota_click, telefono_click, whatsapp_click, email_click
      (micro-conversioni: NON sono prenotazioni, servono a capire dove si perde il percorso).
-  2) Pagina di ringraziamento (front matter `bookingConfirmation: true`, vedi content/grazie.md)
-     -> evento GA4 `generate_lead` = richiesta di prenotazione inviata su Cal.com (conversione principale).
-     Le prenotazioni su Cal.com "richiedono conferma": e' una richiesta, non ancora un appuntamento confermato.
-     In Cal.com ogni tipo di colloquio ha il proprio URL di ritorno:
-       /grazie/?tipo=presenza   e   /grazie/?tipo=online
-     `tipo` e' un valore fisso (non un dato personale) e diventa il parametro `lead_type` dell'evento.
+  La conversione principale (`generate_lead` = richiesta di prenotazione inviata) non e' qui: parte dalla pagina /prenota/
+  quando il modulo Cal.com incorporato segnala `bookingSuccessfulV2` (vedi layouts/_default/prenota.html).
 */}}
 <script>
 (function () {
@@ -18,31 +14,6 @@
     try { if (typeof window.gaTrack === 'function') window.gaTrack(name, params || {}); } catch (e) {}
   }
 
-  {{ if $.Params.bookingConfirmation }}
-  // --- Richiesta di prenotazione inviata (arrivo da Cal.com tramite "Redirect on booking") ---
-  // Leggiamo SOLO `tipo` (presenza|online, valore fisso impostato da noi in Cal.com).
-  // Cal.com puo' appendere nome, email, telefono all'URL: li togliamo subito dalla barra e dalla cronologia.
-  // (Il page_view e' gia' inviato senza query string: vedi CFG in consent.html.)
-  var tipo = 'non_specificato';
-  try {
-    var t = new URLSearchParams(location.search).get('tipo');
-    if (t === 'presenza' || t === 'online') tipo = t;
-  } catch (e) {}
-  try { if (location.search) history.replaceState(null, '', location.pathname); } catch (e) {}
-
-  // Una sola conversione per sessione del browser (evita doppi conteggi con ricarica/indietro).
-  var done = false;
-  try { done = sessionStorage.getItem('prenotazione_tracciata') === '1'; } catch (e) {}
-  if (!done) {
-    try { sessionStorage.setItem('prenotazione_tracciata', '1'); } catch (e) {}
-    track('generate_lead', {
-      lead_source: 'cal.com',
-      lead_type: tipo,
-      currency: 'EUR',
-      value: {{ default 0 (site.Params.ads.bookingValue) }}
-    });
-  }
-  {{ end }}
 
   // --- Click sui link di contatto (delegazione: funziona per navbar, hero, footer e qualsiasi pagina) ---
   document.addEventListener('click', function (ev) {

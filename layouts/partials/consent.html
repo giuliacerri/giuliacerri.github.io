@@ -51,7 +51,7 @@
   var GA_ID = '{{ site.Params.googleAnalytics }}';
   var KEY = 'consenso_cookie_v1';
   var MAX_AGE_MS = 365 * 24 * 3600 * 1000;
-  var CFG = {{ if $.Params.bookingConfirmation }}{ page_location: location.origin + location.pathname }{{ else }}{}{{ end }}; // /grazie/: mai la query string
+  var CFG = {};   // parametri aggiuntivi per gtag('config')
   var PRIVACY_URL = '{{ "privacy/" | relURL }}';
 
   window.dataLayer = window.dataLayer || [];
