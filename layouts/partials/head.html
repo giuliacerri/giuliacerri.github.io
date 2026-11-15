@@ -9,7 +9,7 @@
   <meta name="description" content="{{ $desc }}" />
   <meta name="keywords" content="{{ .Site.Params.keywords }}" />
   <meta name="author" content="{{ .Site.Params.author }}" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="{{ if .Params.noindex }}noindex, nofollow{{ else }}index, follow{{ end }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
 
   {{ "<!-- open graph -->" | safeHTML }}
@@ -171,9 +171,6 @@
   </script>
   {{ end }}
 
-  {{ "<!-- preconnect for performance -->" | safeHTML }}
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
-
   {{ "<!-- stylesheets -->" | safeHTML }}
   <link rel="stylesheet" href="{{ "plugins/slick/slick.css" | absURL }}" />
   <link rel="stylesheet" href="{{ "plugins/slick/slick-theme.css" | absURL }}" />
@@ -185,13 +182,8 @@
   <link rel="icon" href="{{ "images/favicon.ico" | absURL }}" type="image/x-icon" />
 
   {{ with site.Params.googleAnalytics }}
-  {{ "<!-- google analytics -->" | safeHTML }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ . }}');
-  </script>
+  {{ "<!-- consenso cookie + Google Analytics (caricato solo dopo il consenso), vedi layouts/partials/consent.html -->" | safeHTML }}
+  {{ partial "consent.html" $ }}
+  {{ partial "ads-tracking.html" $ }}
   {{ end }}
 </head>

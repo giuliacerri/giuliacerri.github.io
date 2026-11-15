@@ -73,8 +73,14 @@
                         Qui ci concediamo il tempo di ascoltare pensieri, emozioni e vissuti, anche quelli più faticosi, dando nuovi significati a parole antiche e permettendo a quelle mai dette di esistere.
                     </p>
                     <img loading="lazy" decoding="async" src="{{ .image | absURL }}" alt="Studio" class="img-fluid studio-section-image" style="max-width: 800px; margin: 0 auto;">
-                    <div class="studio-map-container mt-5">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233602.58331236057!2d10.161589530336554!3d43.525043443317216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6eb64771851cd0c3%3A0x18ad52205bb3209b!2sPsicologa%20Giulia%20Cerri!5e1!3m2!1sit!2sit!4v1770576999263!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="studio-map"></iframe>
+                    <div class="studio-map-container mt-5 embed-consent">
+                        {{/* L'iframe non ha "src" finche' l'utente non clicca (vedi consent.html): nessuna chiamata a Google prima. */}}
+                        <div class="studio-map embed-consent__placeholder">
+                            <p>La mappa è fornita da Google Maps. Se la carichi, Google può usare cookie e raccogliere dati sulla tua visita.</p>
+                            <button type="button" class="cc-btn cc-btn--solid" data-embed-load>Mostra la mappa</button>
+                            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Via+Monte+Grappa+6+Livorno" target="_blank" rel="noopener">Apri in Google Maps</a> &middot; <a href="{{ "privacy/" | relURL }}">Privacy e cookie</a></p>
+                        </div>
+                        <iframe hidden data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233602.58331236057!2d10.161589530336554!3d43.525043443317216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6eb64771851cd0c3%3A0x18ad52205bb3209b!2sPsicologa%20Giulia%20Cerri!5e1!3m2!1sit!2sit!4v1770576999263!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="studio-map"></iframe>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,202 @@
+{{/*
+  Consenso ai cookie + Google Consent Mode v2 (modalita' "basic").
+
+  - Prima del consenso NON viene caricato gtag.js e non parte nessuna chiamata a Google.
+  - Categorie: Necessari (sempre attivi, nessun cookie di tracciamento), Statistiche (Google Analytics 4),
+    Misurazione degli annunci (Google Ads: conversioni). Il remarketing / la personalizzazione degli annunci sono sempre disattivati.
+  - La scelta e' salvata nel browser (localStorage, chiave `consenso_cookie_v1`) per 12 mesi e si puo' cambiare dal link
+    "Gestisci cookie" nel footer. Se un consenso viene revocato, i cookie di Google vengono cancellati e la pagina si ricarica.
+  - Incorporazioni di terze parti (YouTube, Google Maps): bloccate finche' non si clicca "Mostra" (vedi videoSection.html e locationSection.html).
+  - `window.gaTrack(nome, parametri)` e' l'unico punto da cui partono gli eventi: si accoda finche' l'utente non sceglie,
+    parte dopo un consenso e si scarta dopo un rifiuto.
+*/}}
+<style>
+  .cc-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483000; padding: 12px; font-family: "Poppins", Arial, sans-serif; }
+  .cc-card { max-width: 760px; margin: 0 auto; background: #fff; color: #2b2f33; border: 1px solid #d9e2d4; border-radius: 14px;
+             box-shadow: 0 8px 36px rgba(0,0,0,.22); padding: 18px 20px; font-size: 14.5px; line-height: 1.55; max-height: 88vh; overflow: auto; }
+  .cc-banner .cc-card .cc-title { font-family: "Poppins", Arial, sans-serif !important; font-size: 16px !important; font-weight: 600 !important; line-height: 1.3 !important; margin: 0 0 6px !important; color: #2b2f33 !important; }
+  .cc-banner .cc-card p { margin: 0 0 10px !important; color: #2b2f33 !important; font-size: 14px !important; line-height: 1.5 !important; }
+  .cc-banner .cc-card a { color: #3f5d37 !important; text-decoration: underline !important; font-size: inherit !important; line-height: inherit !important; display: inline !important; }
+  .cc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .cc-btn { appearance: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 14.5px; line-height: 1.2; padding: 11px 18px;
+            border-radius: 10px; border: 2px solid #3f5d37; min-height: 44px; flex: 1 1 140px; text-align: center; }
+  .cc-btn--solid { background: #3f5d37; color: #fff; }
+  .cc-btn--outline { background: #fff; color: #3f5d37; }
+  .cc-btn:focus-visible, .cc-card a:focus-visible, .cc-switch input:focus-visible + .cc-slider { outline: 3px solid #1a73e8; outline-offset: 2px; }
+  .cc-options { margin: 10px 0 0; padding: 0; list-style: none; border-top: 1px solid #e3e9df; }
+  .cc-options li { padding: 12px 0; border-bottom: 1px solid #e3e9df; display: flex; gap: 14px; align-items: flex-start; justify-content: space-between; }
+  .cc-banner .cc-options strong { display: block; font-size: 14px !important; line-height: 1.4 !important; }
+  .cc-banner .cc-options span.cc-desc { display: block; font-size: 12.5px !important; line-height: 1.45 !important; color: #4a5258; }
+  .cc-switch { position: relative; flex: 0 0 auto; display: inline-block; width: 46px; height: 26px; margin-top: 2px; }
+  .cc-switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; z-index: 1; }
+  .cc-slider { position: absolute; inset: 0; background: #aab3a6; border-radius: 26px; transition: background .15s; }
+  .cc-slider::before { content: ""; position: absolute; height: 20px; width: 20px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform .15s; }
+  .cc-switch input:checked + .cc-slider { background: #3f5d37; }
+  .cc-switch input:checked + .cc-slider::before { transform: translateX(20px); }
+  .cc-switch input:disabled { cursor: not-allowed; }
+  .cc-switch input:disabled + .cc-slider { opacity: .6; }
+  .embed-consent__placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+                                gap: 10px; background: #eef3ea; color: #2b2f33; padding: 20px; box-sizing: border-box; font-size: 14.5px; line-height: 1.5; }
+  .embed-consent__placeholder p { margin: 0 !important; max-width: 520px; color: inherit !important; font-size: 14.5px !important; line-height: 1.5 !important; }
+  .embed-consent__placeholder a { color: #3f5d37 !important; text-decoration: underline !important; font-size: inherit !important; }
+  .embed-consent__placeholder .cc-btn { flex: 0 0 auto; padding: 10px 22px; min-height: 44px; }
+  .video-wrapper .embed-consent__placeholder { position: absolute; inset: 0; background: #12231a; color: #fff; }
+  .video-wrapper .embed-consent__placeholder a { color: #cfe3c8 !important; }
+  .video-wrapper .embed-consent__placeholder .cc-btn--solid { background: #fff; color: #1a2e1a; border-color: #fff; }
+  @media (max-width: 575px) {
+    .cc-banner { padding: 8px; }
+    .cc-card { padding: 12px 14px; }
+    .cc-banner .cc-card p { font-size: 13px !important; margin-bottom: 6px !important; }
+    .cc-actions { gap: 8px; margin-top: 8px; }
+    .cc-btn { flex-basis: 100%; min-height: 42px; padding: 9px 14px; font-size: 14px; }
+    .cc-btn[data-cc-act="reject"], .cc-btn[data-cc-act="accept"] { flex-basis: calc(50% - 4px); }
+  }
+  @media (prefers-reduced-motion: reduce) { .cc-slider, .cc-slider::before { transition: none; } }
+</style>
+<script>
+(function () {
+  var GA_ID = '{{ site.Params.googleAnalytics }}';
+  var KEY = 'consenso_cookie_v1';
+  var MAX_AGE_MS = 365 * 24 * 3600 * 1000;
+  var CFG = {{ if $.Params.bookingConfirmation }}{ page_location: location.origin + location.pathname }{{ else }}{}{{ end }}; // /grazie/: mai la query string
+  var PRIVACY_URL = '{{ "privacy/" | relURL }}';
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+
+  var current = null;      // scelta attuale {analytics, ads} oppure null se l'utente non ha ancora scelto
+  var started = false;
+  var pending = [];
+
+  function read() {
+    try {
+      var r = JSON.parse(localStorage.getItem(KEY));
+      if (r && typeof r.analytics === 'boolean' && typeof r.ads === 'boolean' && r.ts && Date.now() - r.ts < MAX_AGE_MS) return r;
+    } catch (e) {}
+    return null;
+  }
+  function write(c) { try { localStorage.setItem(KEY, JSON.stringify({ analytics: c.analytics, ads: c.ads, ts: Date.now() })); } catch (e) {} }
+
+  function pushConsent(c) {
+    gtag('consent', 'update', {
+      analytics_storage: c.analytics ? 'granted' : 'denied',
+      ad_storage: c.ads ? 'granted' : 'denied',
+      ad_user_data: c.ads ? 'granted' : 'denied',
+      ad_personalization: 'denied'   // nessun remarketing / annunci personalizzati
+    });
+  }
+  function startGA() {
+    if (started) return;
+    started = true;
+    gtag('js', new Date());
+    gtag('config', GA_ID, CFG);
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+    document.head.appendChild(s);
+  }
+  function anyGranted(c) { return !!(c && (c.analytics || c.ads)); }
+  function flush() {
+    if (!anyGranted(current)) { pending = []; return; }
+    while (pending.length) { var e = pending.shift(); gtag('event', e[0], e[1]); }
+  }
+  function deleteGoogleCookies() {
+    var host = location.hostname, parts = host.split('.'), root = parts.length > 2 ? parts.slice(-2).join('.') : host;
+    var domains = [host, '.' + host, root, '.' + root];
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (/^(_ga|_gid|_gat|_gcl|_gac|FPID|FPLC|_gaexp)/.test(name)) {
+        domains.forEach(function (d) { document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d; });
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+      }
+    });
+  }
+
+  // Unico punto da cui partono gli eventi Analytics/Ads
+  window.gaTrack = function (name, params) {
+    if (anyGranted(current)) gtag('event', name, params || {});
+    else if (current === null) pending.push([name, params || {}]);   // scelta non ancora fatta: in attesa
+  };
+
+  // Applica la scelta salvata PRIMA di qualsiasi evento
+  current = read();
+  if (current) { pushConsent(current); if (anyGranted(current)) startGA(); }
+
+  function decide(next) {
+    var wasGranted = anyGranted(current);
+    var lost = !!current && ((current.analytics && !next.analytics) || (current.ads && !next.ads));
+    current = { analytics: !!next.analytics, ads: !!next.ads };
+    write(current);
+    pushConsent(current);
+    if (lost) { deleteGoogleCookies(); location.reload(); return; }
+    if (anyGranted(current)) { startGA(); flush(); } else { pending = []; }
+    closeBanner();
+  }
+
+  // ---------------- Interfaccia ----------------
+  var root = null;
+  function closeBanner() { if (root && root.parentNode) root.parentNode.removeChild(root); root = null; }
+
+  function openBanner(customize) {
+    closeBanner();
+    var sel = current || { analytics: false, ads: false };
+    root = document.createElement('div');
+    root.className = 'cc-banner';
+    root.setAttribute('role', 'dialog');
+    root.setAttribute('aria-labelledby', 'cc-title');
+    root.setAttribute('aria-describedby', 'cc-text');
+    root.innerHTML =
+      '<div class="cc-card">' +
+        '<p class="cc-title" role="heading" aria-level="2" id="cc-title">Cookie e privacy</p>' +
+        '<p id="cc-text">Uso cookie tecnici necessari al funzionamento del sito. Solo con il tuo consenso uso anche Google Analytics (statistiche sull\'uso del sito) e la misurazione degli annunci di Google Ads (per capire quali annunci portano richieste di prenotazione). Puoi accettare, rifiutare o scegliere. Maggiori informazioni nell\'<a href="' + PRIVACY_URL + '">informativa privacy e cookie</a>.</p>' +
+        '<div class="cc-custom" hidden>' +
+          '<ul class="cc-options">' +
+            '<li><div><strong>Necessari</strong><span class="cc-desc">Servono al funzionamento del sito e a ricordare questa scelta. Non tracciano la navigazione. Sempre attivi.</span></div>' +
+              '<label class="cc-switch"><input type="checkbox" checked disabled aria-label="Cookie necessari (sempre attivi)"><span class="cc-slider"></span></label></li>' +
+            '<li><div><strong>Statistiche (Google Analytics)</strong><span class="cc-desc">Misurano in forma aggregata come viene usato il sito.</span></div>' +
+              '<label class="cc-switch"><input type="checkbox" data-cc="analytics" aria-label="Statistiche (Google Analytics)"' + (sel.analytics ? ' checked' : '') + '><span class="cc-slider"></span></label></li>' +
+            '<li><div><strong>Misurazione degli annunci (Google Ads)</strong><span class="cc-desc">Aiutano a capire quali annunci portano richieste di prenotazione. Non attivo annunci personalizzati o remarketing.</span></div>' +
+              '<label class="cc-switch"><input type="checkbox" data-cc="ads" aria-label="Misurazione degli annunci (Google Ads)"' + (sel.ads ? ' checked' : '') + '><span class="cc-slider"></span></label></li>' +
+          '</ul>' +
+        '</div>' +
+        '<div class="cc-actions">' +
+          '<button type="button" class="cc-btn cc-btn--solid" data-cc-act="reject">Rifiuta tutti</button>' +
+          '<button type="button" class="cc-btn cc-btn--solid" data-cc-act="accept">Accetta tutti</button>' +
+          '<button type="button" class="cc-btn cc-btn--outline" data-cc-act="custom">Personalizza</button>' +
+          '<button type="button" class="cc-btn cc-btn--outline" data-cc-act="save" hidden>Salva le mie scelte</button>' +
+        '</div>' +
+      '</div>';
+    document.body.insertBefore(root, document.body.firstChild);
+
+    var custom = root.querySelector('.cc-custom'), btnCustom = root.querySelector('[data-cc-act="custom"]'), btnSave = root.querySelector('[data-cc-act="save"]');
+    function showCustom() { custom.hidden = false; btnCustom.hidden = true; btnSave.hidden = false; btnSave.focus(); }
+    if (customize) showCustom();
+    root.addEventListener('click', function (ev) {
+      var b = ev.target.closest && ev.target.closest('[data-cc-act]'); if (!b) return;
+      var act = b.getAttribute('data-cc-act');
+      if (act === 'accept') decide({ analytics: true, ads: true });
+      else if (act === 'reject') decide({ analytics: false, ads: false });
+      else if (act === 'custom') showCustom();
+      else if (act === 'save') decide({ analytics: root.querySelector('[data-cc="analytics"]').checked, ads: root.querySelector('[data-cc="ads"]').checked });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!current) openBanner(false);
+  });
+  document.addEventListener('click', function (ev) {
+    var t = ev.target && ev.target.closest ? ev.target.closest('[data-cookie-settings]') : null;
+    if (t) { ev.preventDefault(); openBanner(true); return; }
+    // Incorporazioni di terze parti: si caricano solo dopo il click dell'utente
+    var load = ev.target && ev.target.closest ? ev.target.closest('[data-embed-load]') : null;
+    if (load) {
+      var box = load.closest('.embed-consent'); if (!box) return;
+      var frame = box.querySelector('iframe[data-src]'), ph = box.querySelector('.embed-consent__placeholder');
+      if (frame) { frame.src = frame.getAttribute('data-src'); frame.removeAttribute('data-src'); frame.hidden = false; }
+      if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+    }
+  });
+})();
+</script>

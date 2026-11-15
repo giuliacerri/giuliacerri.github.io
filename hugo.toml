@@ -52,6 +52,11 @@ DefaultContentLanguage = "it"
   keywords = "psicologa livorno, psicologia perinatale, supporto psicologico, gravidanza, post parto, psicologia online, psicologa toscana, giulia cerri psicologa"
   ogImage = "images/og-image.png"
 
+# Tracciamento Google Ads: valore (EUR) associato alla conversione "prenotazione completata" (generate_lead).
+# Oggi il colloquio singolo costa 50 EUR; aggiornare quando cambiano i prezzi (da gennaio).
+[params.ads]
+  bookingValue = 50
+
 [params.address]
   email = "giuliacerri.psicologa@gmail.com"
   phone = "+39 350 5904363"
